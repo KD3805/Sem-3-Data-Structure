@@ -14,7 +14,8 @@ public class Linkedlist {
 		l2.insertAtEnd(17);
 		l1.print();
 		l2.print();
-		//HI Kisan
+		//HI Kisan 
+		// Pull Demo
 	}
 
 }
