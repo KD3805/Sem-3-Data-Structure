@@ -2,12 +2,8 @@ import java.util.Scanner;
 
 class Stack {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        System.out.print("Enter Size of Stack : ");
-        int size = sc.nextInt();
         
-        StackOperations st = new StackOperations(size);
+        StackOperations st = new StackOperations(4);
 
         System.out.println("PUSH Elements : ");
         st.push(1);
@@ -17,7 +13,8 @@ class Stack {
 
         st.display();
 
-        System.out.println("Top Element : " + st.peep());
+        System.out.println("Top Element : " + st.peek());
+        System.out.println("Peep Element : " + st.peep(3));
 
         System.out.println("POP Elements : ");
         st.pop();
@@ -47,11 +44,13 @@ class StackOperations {
     int top;
     int[] stackArray;
 
+
     public StackOperations(int size) {
         maxSize = size;
         top = -1;
         stackArray = new int[maxSize];
     }
+
 
     public void push(int value) {
         if (top == maxSize - 1) {
@@ -62,6 +61,7 @@ class StackOperations {
             System.out.println(value + " pushed to the stack.");
         }
     }
+
 
     public int pop() {
         if (top == -1) {
@@ -76,7 +76,8 @@ class StackOperations {
         }
     }
 
-    public int peep() {
+
+    public int peek() {
         if (top == -1) {
             System.out.println("Stack Underflow (Cannot pop element)");
             return -1;
@@ -85,13 +86,35 @@ class StackOperations {
         }
     }
 
+
+    public int peep(int index) {
+
+        if (top == -1) {
+            System.out.println("Stack Underflow (Cannot peep element)");
+            return -1;
+        }
+        if(index < 0){
+            System.out.println("Index cannot be Negative");
+            return -1;
+        }
+        if(index > top){
+            System.out.println("Stack Underflow");
+            return -1;
+        }
+
+        return (stackArray[top - index]); 
+    }
+
+
     public boolean isEmpty() {
         return (top == -1);
     }
 
+
     public boolean isFull() {
         return (top == maxSize - 1);
     }
+
 
     public void display(){
         System.out.println("Stack Elements are : ");
@@ -100,12 +123,11 @@ class StackOperations {
         }
     }
 
+
     public void change(int element, int index){
-        if (top >= maxSize - 1) {
-            System.out.println("Stack Overflow (Cannot push element)");
-        }
+        
         if (top == -1) {
-            System.out.println("Stack Underflow (Cannot pop element)");
+            System.out.println("Stack Underflow (Cannot change element)");
         }
         if(index < 0){
             System.out.println("Index cannot be Negative");

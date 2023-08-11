@@ -30,6 +30,8 @@ public class CircularQueue {
 
         qo.display();
 
+
+
     }
 }
 class QueueOperations {
@@ -50,10 +52,19 @@ class QueueOperations {
         }
         if(f == r){
             System.out.println("Queue Overflow");
+            if(r == 0){
+                r = n-1;
+            }
+            else{
+                r--;
+            }
+            return;
         }
 
         q[r] = value;
         System.out.println(value+" is Innserted in Rear of Queue");
+        System.out.println("R is "+r+" F is "+f);
+
 
         if(f == -1){
             f = 0;
@@ -73,6 +84,8 @@ class QueueOperations {
         f--;
         q[f] = value;
         System.out.println(value+" is Innserted in Front of Queue");
+        System.out.println("R is "+r+" F is "+f);
+
     }
 
     public int cqDelete_Front(){
@@ -84,6 +97,7 @@ class QueueOperations {
         int y = q[f];
         q[f] = 0;
         System.out.println(y+" is Removed from Front of Queue");
+        System.out.println("R is "+r+" F is "+f);
 
         if(f == r){
             f = r = -1;
@@ -107,6 +121,7 @@ class QueueOperations {
         int y = q[r];
         q[r] = 0;
         System.out.println(y+" is Removed from Rear of Queue");
+        System.out.println("R is "+r+" F is "+f);
 
         if(f == r){
             f = r = -1;
