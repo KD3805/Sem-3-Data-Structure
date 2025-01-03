@@ -1,0 +1,43 @@
+@ ArrayList methods:
+
+1. Insertion - add()
+2. Deletion - remove()
+3. access element - get(i)
+4. update - set(i, 5)
+5. size - size()
+6. Iterate - 
+	for(i=0; i<arr.size(); i++)
+		syso(arr.get(i))
+
+
+@ HashSet methods: (Store only unique elements)
+
+(same as ArrayList)
+1. Insertion - add()
+2. Deletion - remove()
+3. access element - get(i)
+4. update - set(i, 5)
+5. size - size()
+
+(new)
+6. search - contains(5)
+7. Iterate - 
+	i) add java.util.Iterator;
+	
+	ii) Iterator it = set.iterator() 
+	--> {iterator() returns an iterator because hashset does not store data sequentially}
+
+	iii) while(it.hasNext())
+		syso(it.next())
+
+
+@ HashMap methods: (Store key:value pairs)
+
+1. Insertion - put(String, Integer)
+2. Search keys - containsKey(key)
+3. Access keys - get(key)
+4. Iterate -
+	for(Map.Entry<String, Integer> e : map_name.entrySet() ) {
+		syso(e.getKey());
+		syso(e.getValue());
+	}

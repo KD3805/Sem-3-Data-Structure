@@ -37,6 +37,7 @@ public class MatrixAddition {
 				b[i][j] = sc.nextInt();
 			}
 		}
+
 		Addition add =new Addition();
 		add.addMatrices(a, b);
 	}
@@ -48,6 +49,9 @@ class Addition{
 		
 		for(int i=0;i<a.length;i++){
 			for(int j=0;j<a[i].length;j++){
+				System.out.println("a["+i+"]= "+a[i]);
+				System.out.println("a["+i+"].length= "+a[i].length);
+
 				c[i][j] = a[i][j] + b[i][j];
 			}
 			

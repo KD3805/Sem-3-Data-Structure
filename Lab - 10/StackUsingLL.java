@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 class StackUsingLL{
 	public static void main(String[] args) {
 		StackOfLL st = new StackOfLL();
@@ -23,7 +21,7 @@ class StackUsingLL{
 		st.peep(4);
 		st.display();
 
-		st.change(23,4);
+		st.change(23,2);
 		st.display();
 
 	}
@@ -88,6 +86,11 @@ class StackOfLL{
     public Node peep(int pos) {
         if (top == null) {
             System.out.println("Stack is empty.");
+            return null;
+        }
+
+		if(pos > countNodes()){
+            System.out.println("Stack Underflow");
             return null;
         }
 
@@ -165,8 +168,8 @@ class StackOfLL{
 			Node temp = top;
 
 			while(temp != null){
-				temp = temp.link;
 				count++;
+				temp = temp.link;
 			}
 		}
 		System.out.println("Total No. of Elements : "+count);

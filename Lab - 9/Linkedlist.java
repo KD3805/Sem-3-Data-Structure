@@ -4,7 +4,7 @@ public class Linkedlist {
 		System.out.println();
 
 		Ll l1 = new Ll();
-		Ll l2 = new Ll(5);
+		// Ll l2 = new Ll(5);
 		
 		l1.insertAtFront(9);
 		l1.insertAtFront(27);
@@ -12,14 +12,13 @@ public class Linkedlist {
 		l1.insertAtEnd(23);
 		l1.insertAtEnd(5);
 		l1.insertAtEnd(23);
-		l1.insertOrder(10);
 		l1.display();
 
-		l1.insertAtPosition(19,1);
+		l1.insertAtPosition(19,6);
 		l1.display();
 
-		l1.sort();
 		l1.insertOrder(10);
+		l1.display();
 
 		l1.deleteLast();
 		l1.display();
@@ -60,8 +59,8 @@ class Ll{
 		lastInserted.link = new Node(x);
 		lastInserted = lastInserted.link;
 	}
+	
 	// ------------------------------------------------------------
-
 
 	// Insert a node at front of the linked list
 	public void insertAtFront(int x){
@@ -131,6 +130,9 @@ class Ll{
 				temp1 = temp2;
 				temp2 = temp2.link;
 			}
+			if(flag) {
+				break;
+			}
 		}
 		System.out.println("After sorting, List elements are...");
 		display();
@@ -142,10 +144,7 @@ class Ll{
     public void insertOrder(int x){
         Node newNode = new Node(x);
 
-        if(flag == false){
-        	System.out.println("Nodes are not sorted.");
-        	return;
-        }
+		sort();
 
         if(first == null){
             first = newNode;
@@ -192,7 +191,7 @@ class Ll{
         Node current = first;
         Node prev = null;
 
-        while (current.link != null && count < pos) {
+        while (current != null && count < pos) {
             prev = current;
             current = current.link;
             count++;
@@ -202,11 +201,8 @@ class Ll{
             System.out.println("Position "+pos+" not found in the linked list.");
         }
         else {
-        	newNode.link = current.link;
+        	newNode.link = current;
             prev.link = newNode;
-
-            // newNode.link = current.link;
-            // current.link = newNode;
             System.out.println("Node inserted at position " + pos);
         }
     }
@@ -216,10 +212,10 @@ class Ll{
 	public void deleteElement(int element){
 		if(first == null){
 			System.out.println("List is empty, can't delete any element");
+			return;
 		}
-		Node save = null;
+		Node save = first;
 		Node pred = null;
-		save = first;
 
 		while(save.link != null && save.info != element){
 			pred = save;
@@ -292,6 +288,7 @@ class Ll{
         }
         else {
             prev.link = current.link;
+			current.link = null;
             System.out.println("Node deleted from position " + pos);
         }
     }

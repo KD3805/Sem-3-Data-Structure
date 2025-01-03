@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 class QueueUsingLL{
 	public static void main(String[] args) {
 		QueueOfLL ql = new QueueOfLL();

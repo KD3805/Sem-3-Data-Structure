@@ -1,6 +1,8 @@
 class DoublyLL{
 	public static void main(String[] args) {
 		LL dl = new LL();
+
+		//insert
 		dl.insertAtFirst(12);
 		dl.insertAtFirst(23);
 		dl.insertAtFirst(17);
@@ -9,8 +11,12 @@ class DoublyLL{
 		dl.insertAtLast(43);
 		dl.display();
 
-		dl.sort();
+		//insert in order
 		dl.insertOrder(27);
+		dl.display();
+
+		//delete
+		dl.deleteElement(27);
 		dl.display();
 	}
 }
@@ -27,8 +33,8 @@ class Node{
 }
 
 class LL{
-	Node left;
-	Node right;
+	private Node left;
+	private Node right;
 
 	public void insertAtFirst(int x){
 		Node newNode = new Node(x);
@@ -105,6 +111,9 @@ class LL{
 				temp1 = temp2;
 				temp2 = temp2.rptr;
 			}
+			if(flag) {
+				break;
+			}
 		}
 		System.out.println("After sorting, List elements are...");
 		display();
@@ -116,10 +125,7 @@ class LL{
     public void insertOrder(int x){
         Node newNode = new Node(x);
 
-        if(flag == false){
-        	System.out.println("Nodes are not sorted.");
-        	return;
-        }
+        sort();
 
         if(right == null){
 			left = right = newNode;
@@ -149,54 +155,46 @@ class LL{
         return;
     }
 
-
-    public void deleteElement(){
+	// Delete any element
+    public void deleteElement(int element){
     	if(right == null){
 			System.out.println("Linked list is empty, can't delete any element");
 		}
-		Node save = null;
-		Node pred = null;
-		save = left;
+		Node save = left;
 
 		while(save.rptr != null && save.info != element){
-			pred = save;
 			save = save.rptr;
 		}
 
-		if(save.rptr == null){
-			System.out.println("Element "+element+" is not found");
-			return;
-		}
-
-		else if(left == right){
+		// if list have only one element
+		if(left == right){
 			left = right = null;
 			return;
 		}
 
+		// if given element is first element of list
 		else if(save == left){
 			left = left.rptr;
 			left.lptr = null;
 		}
 
+		// if given element is last element of list
 		else if(save == right){
 			right = right.lptr;
 			right.rptr = null;
 		}
+
+		// if element not found
+		else if(save.rptr == null){
+			System.out.println("Element "+element+" is not found");
+			return;
+		}
 		
 		else{
-			if(save == first){
-				first = first.link;
-				last.link = first;
-			}
-			else{
-				pred.link = save.link;
-				// save.link = null;
-
-				if(element == last.info){
-					last = pred;
-				}
-				System.out.println(element+" is deleted from the list");
-			}
+			(save.lptr).rptr = save.rptr;
+			(save.rptr).lptr = save.lptr;
+			System.out.println(element+" is deleted from the list");
+		}
     }
 
     public void display(){

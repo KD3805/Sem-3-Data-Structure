@@ -71,6 +71,7 @@ class LL{
 
 		if(first == null){
 			System.out.println("List is empty");
+			return;
 		}
 
 		// Count No. of Nodes
@@ -102,21 +103,19 @@ class LL{
 				temp1 = temp2;
 				temp2 = temp2.link;
 			}
+
+			if(flag) break;
 		}
 		System.out.println("After sorting, List elements are...");
 		display();
 
 	}
 
-
 	// Insert a node in increasing order of the linked list
     public void cir_ins_ord(int x){
         Node newNode = new Node(x);
 
-        if(flag == false){
-        	System.out.println("Nodes are not sorted.");
-        	return;
-        }
+		sort();
 
         if(first == null){
             newNode.link = newNode;
@@ -156,16 +155,15 @@ class LL{
 		if(first == null){
 			System.out.println("Linked list is empty, can't delete any element");
 		}
-		Node save = null;
+		Node save = first;
 		Node pred = null;
-		save = first;
 
-		while(save != last && save.info != element){
+		while(save.link != first && save.info != element){
 			pred = save;
 			save = save.link;
 		}
 
-		if(save == last){
+		if(save.link == first){
 			System.out.println("Element "+element+" is not found");
 		}
 		else{

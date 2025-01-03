@@ -30,6 +30,7 @@ class FindDuplicate {
 			for(int j=(i+1); j<a.length; j++){
 				if(a[i]==a[j]){
 					flag = true;
+					break;
 				}
 			}
 		}

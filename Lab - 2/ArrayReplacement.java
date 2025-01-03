@@ -32,13 +32,37 @@ class Replacement {
         int secondNumber = scanner.nextInt();
 
         // Find the index of the first number in the array
+
+        // Linear Search
+        // for (int i = 0; i < size; i++) {
+        //     if (numbers[i] == firstNumber) {
+        //         index = i;
+        //         break;
+        //     }
+        // }
+
+        // Binary Search
         int index = -1;
-        for (int i = 0; i < size; i++) {
-            if (numbers[i] == firstNumber) {
-                index = i;
+        int low = 0, mid = 0;
+        int high = numbers.length - 1;
+
+        while (high > low) {
+            mid = (high + low) / 2;
+
+            if (firstNumber < numbers[mid]) {
+                high = mid - 1;
+            }
+
+            else if (firstNumber == numbers[mid]) {
+                index = mid;
                 break;
             }
+
+            else {
+                low = mid + 1;
+            }
         }
+
         // Replace the first number with the second number if it exists in the array
         if (index != -1) {
             numbers[index] = secondNumber;

@@ -1,6 +1,4 @@
-import java.util.Scanner;
-
-class Stack {
+public class Stack {
     public static void main(String[] args) {
         
         StackOperations st = new StackOperations(4);
@@ -102,7 +100,7 @@ class StackOperations {
             return -1;
         }
 
-        return (stackArray[top - index]); 
+        return (stackArray[top - index]);
     }
 
 

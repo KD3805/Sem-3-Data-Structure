@@ -1,4 +1,4 @@
- // Write a program to insert a number at a given location in an array.
+ // Write a program to delete a number at a given location in an array.
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -43,6 +43,7 @@ class Deletion{
             newIndex++;
         }
 
-        System.out.println("Array after insertion: " + Arrays.toString(newArr));
+        System.out.println("Array after deletion: " + Arrays.toString(newArr));
     }
 }
+

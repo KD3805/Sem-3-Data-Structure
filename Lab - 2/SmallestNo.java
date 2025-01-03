@@ -1,4 +1,4 @@
- //Write a program to find position of the smallest number from given n numbers.
+//  Write a program to find position of the smallest number from given n numbers.
 
 import java.util.Scanner;
 

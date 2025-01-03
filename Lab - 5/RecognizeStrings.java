@@ -34,6 +34,7 @@ class Recognize{
         while(ch[i] != 'c') {
             if(ch[i] == ' '){
                 System.out.println("Invalid String");
+                return;
             }
             else{
                 st.push(ch[i]);
@@ -42,6 +43,7 @@ class Recognize{
             
         }
 
+        //(st.peek() != 'c')
         while(st.stackArray[st.top] != 'c'){
             char x = st.pop();
             i--;
@@ -58,9 +60,11 @@ class Recognize{
 
         if(st.isEmpty()){
             System.out.println("Valid String");
+            return;
         }
         else{
             System.out.println("Invalid String");
+            return;
         }
         
     }

@@ -8,9 +8,6 @@ public class PrePosConverter {
         System.out.print("\nEnter Infix Expression (Without Space) : ");
         String infixExp = sc.next();
 
-        StringBuilder infix = new StringBuilder(infixExp);
-        infix.reverse();
-
         System.out.print("\nEnter 'pre' for Prefix Conversion and 'post' for Postfix Conversion of Expression : ");
         String conversion = sc.next();
 
@@ -18,6 +15,9 @@ public class PrePosConverter {
         PrefixConverter prec = new PrefixConverter();
 
         if(conversion.equals("pre")){
+            StringBuilder infix = new StringBuilder(infixExp);
+            infix.reverse();
+            
             String prefixExp = prec.convertToPrefix(infix.toString());
 
             StringBuilder prefix = new StringBuilder(prefixExp);
