@@ -17,8 +17,8 @@ public class BreadthFirstSearch{
         }
     }
 
-     static void bfs(int src) {
-        Queue<Integer> queue = new LinkedList<>();
+    static void bfs(int src) {
+        Queue<Integer> q = new LinkedList<Integer>();
         Map<Integer, Boolean> visited = new HashMap<>();
 
         queue.add(src);

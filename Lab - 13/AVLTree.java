@@ -33,7 +33,7 @@ class ImplementAVL {
   int[] maxHeight(Node root) {
     if (root == null) {
       int[] arr = { -1, -1 };
-      return arr;
+      return arr;           
     }
 
     int[] lh = maxHeight(root.lptr);

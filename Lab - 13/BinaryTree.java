@@ -1,5 +1,3 @@
-package Tree;
-
 class BinaryTree{
 	public static void main(String[] args) {
 		BST bt = new BST();
@@ -107,7 +105,6 @@ class BST{
 		else if(root.info < val){
 			root.rptr = deleteRecursion(root.rptr, val);
 		}
-
 
 		else { 
 			//case 1

@@ -3,6 +3,7 @@
 	  print it.
 */
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class MatrixAddition {
@@ -38,6 +39,22 @@ public class MatrixAddition {
 			}
 		}
 
+		System.out.println("First matrix: ");
+		for(int i=0;i<a.length;i++) {
+			for(int j=0;j<a[i].length;j++) {
+				System.out.print(" "+a[i][j]);
+			}
+			System.out.println("");
+		}
+
+		System.out.println("Second matrix: ");
+		for(int i=0;i<b.length;i++) {
+			for(int j=0;j<b[i].length;j++) {
+				System.out.print(" "+b[i][j]);
+			}
+			System.out.println("");
+		}
+
 		Addition add =new Addition();
 		add.addMatrices(a, b);
 	}
@@ -49,14 +66,14 @@ class Addition{
 		
 		for(int i=0;i<a.length;i++){
 			for(int j=0;j<a[i].length;j++){
-				System.out.println("a["+i+"]= "+a[i]);
-				System.out.println("a["+i+"].length= "+a[i].length);
+				System.out.println("row= "+Arrays.toString(a[i]));
+				System.out.println("column length= "+a[i].length);
 
 				c[i][j] = a[i][j] + b[i][j];
 			}
 			
 		}
-		System.out.println("After Addition, Resultant Matrix :");
+
 		for(int i=0;i<c.length;i++) {
 			for(int j=0;j<a[i].length;j++) {
 				System.out.print(" "+c[i][j]);

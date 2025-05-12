@@ -10,6 +10,7 @@ class Duplicate {
 		int n = sc.nextInt();
 
 		int[] arr = new int[n];
+		System.out.println(arr);
 
 		FindDuplicate fd = new FindDuplicate();
 		fd.isDuplicate(arr);

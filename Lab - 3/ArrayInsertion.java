@@ -6,6 +6,8 @@ import java.util.Scanner;
 public class ArrayInsertion {
 
   public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+
     int[] arr = { 0, 1 };
     jenish jn = new jenish(3);
     System.out.println(jn.get(2));

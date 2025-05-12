@@ -11,6 +11,7 @@ public class ArrayDeletion {
         int size = scanner.nextInt();
 
         int[] arr = new int[size];
+        System.out.println("Array Before iNIT: " + Arrays.toString(arr));
 
         System.out.println("Enter " + size + " numbers:");
         for (int i = 0; i < size; i++) {
@@ -18,7 +19,7 @@ public class ArrayDeletion {
         }
 
         System.out.println("Array Before Deletion: " + Arrays.toString(arr));
-
+        
         Deletion del = new Deletion();
         del.deleteElement(arr, size);
 

@@ -45,7 +45,7 @@ public class Searching_Sorting {
         boolean isFound = false;
 
         while(low <= high) {
-            int mid = (high + low)/2;
+            int mid = low + (high - low) / 2;
 
             if(element < arr[mid]) {
                 high = mid - 1;
@@ -111,17 +111,39 @@ public class Searching_Sorting {
 
     //partition for quick sort
     public static int partition(int[] arr, int low, int high) {
-        
-    }
+        int pivot = arr[high]; // Choose last element as pivot
+        int i = low - 1;        // i is index of smaller element
+    
+        // Rearranging elements based on pivot
+        for (int j = low; j < high; j++) {
+          if (arr[j] <= pivot) {
+            i++;
+            // Swap arr[i] and arr[j]
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+          }
+        }
+    
+        // Place pivot in the correct position
+        int temp = arr[i + 1];
+        arr[i + 1] = arr[high];
+        arr[high] = temp;
+    
+        return i + 1; // Return pivot index
+      }
 
 
     //quick sort
     public static void quickSort(int[] arr, int low, int high) {
-        int partitionIndex;
-
-        partitionIndex = partition(arr, low, high);
-        quickSort(arr, low, partitionIndex - 1);
-        quickSort(arr, partitionIndex + 1, high);
+        if (low < high) {
+            // Step 1: Partition the array and get pivot index
+            int pi = partition(arr, low, high);
+      
+            // Recursively sort elements before and after partition
+            quickSort(arr, low, pi - 1);   // Left of pivot
+            quickSort(arr, pi + 1, high);  // Right of pivot
+        }
     }
 
 

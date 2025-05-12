@@ -77,7 +77,7 @@ class StackOperations {
 
     public int peek() {
         if (top == -1) {
-            System.out.println("Stack Underflow (Cannot pop element)");
+            System.out.println("Stack Underflow (Cannot peek element)");
             return -1;
         } else {
             return stackArray[top];

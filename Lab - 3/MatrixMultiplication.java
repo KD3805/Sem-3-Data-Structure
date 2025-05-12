@@ -6,78 +6,55 @@
 import java.util.Scanner;
 
 public class MatrixMultiplication {
-
-	public static void main(String[] args) {
-		
-	Scanner sc = new Scanner(System.in);
-		
-		int [][]a ;
-		int [][]b;
-		int r1 =0 , c1=0, r2=0, c2=0;
-		System.out.println("Enter the number of rows of first matrix :");
-		r1 =sc.nextInt();		
-		System.out.println("Enter the number of columns of first matrix:");
-		c1 = sc.nextInt();
-		
-		System.out.println("Enter the number of rows of second matrix :");
-		r2 =sc.nextInt();		
-		System.out.println("Enter the number of columns of second matrix :");
-		c2 = sc.nextInt();
-		if(c1 != r2) {
-			System.out.println("Given sets of row and colums does not follow rules of matrix multiplication.");
-		}
-		else {
-			a = new int[r1][c1];
-			b =  new int[r2][c2];
-			
-			System.out.println("Enter the value of first matrix (row wise) : ");
-			for(int i=0;i<r1;i++) {
-			    System.out.println("row "+(i+1)+" : ");
-				for(int j=0;j<c1;j++) {
-					a[i][j] = sc.nextInt();
-				}
-			}
-			
-			System.out.println("Enter the value of second matrix (row wise) : ");
-			for(int i=0;i<r2;i++) {
-				
-				System.out.println("row "+(i+1)+" : ");
-				
-				for(int j=0;j<c2;j++) {
-					b[i][j] = sc.nextInt();
-				}
-			}
-			Multiplication mp = new Multiplication();
-			mp.multiplication(a, b);
-		}
-
-	}
-
-}
-class Multiplication{
-	public void multiplication(int [][]a, int [][]b) {
-		int temp = 0, sum =0;
-		int [][] c = new int[a.length][b[0].length];
-		
-		for(int i=0; i<a.length; i++) {
-			sum =0;
-			for(int j=0; j<b[0].length; j++) {
-				temp = a[i][j] * b[j][i];
-				sum = sum + temp;				
-			}
-			
-			for(int j=0; j<b[0].length; j++) {
-				c[i][j] =sum;
-			}
-		}
-		
-		System.out.println("Multiplication of given matries is :");
-		for(int i=0; i<a.length; i++) {
-			for(int j=0; j<b[0].length; j++) {
-				System.out.print(" "+c[i][j]);
-			}			
-			System.out.println("");
-		}
-	}
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        // Define matrix dimensions
+        int rows1 = 3, cols1 = 2;  // First matrix: 3x2
+        int rows2 = 2, cols2 = 3;  // Second matrix: 2x3
+        
+        // Create matrices
+        int[][] matrix1 = new int[rows1][cols1];
+        int[][] matrix2 = new int[rows2][cols2];
+        int[][] result = new int[rows1][cols2];
+        
+        // Input first matrix
+        System.out.println("Enter elements of first matrix (3x2):");
+        for (int i = 0; i < rows1; i++) {
+            for (int j = 0; j < cols1; j++) {
+                System.out.print("Enter element at position [" + (i+1) + "][" + (j+1) + "]: ");
+                matrix1[i][j] = sc.nextInt();
+            }
+        }
+        
+        // Input second matrix
+        System.out.println("\nEnter elements of second matrix (2x3):");
+        for (int i = 0; i < rows2; i++) {
+            for (int j = 0; j < cols2; j++) {
+                System.out.print("Enter element at position [" + (i+1) + "][" + (j+1) + "]: ");
+                matrix2[i][j] = sc.nextInt();
+            }
+        }
+        
+        // Perform matrix multiplication
+        for (int i = 0; i < rows1; i++) {
+            for (int j = 0; j < cols2; j++) {
+                for (int k = 0; k < cols1; k++) {
+                    result[i][j] += matrix1[i][k] * matrix2[k][j];
+                }
+            }
+        }
+        
+        // Display result
+        System.out.println("\nResultant Matrix (3x3):");
+        for (int i = 0; i < rows1; i++) {
+            for (int j = 0; j < cols2; j++) {
+                System.out.print(result[i][j] + " ");
+            }
+            System.out.println();
+        }
+        
+        sc.close();
+    }
 }
 
